@@ -2,7 +2,7 @@
 
 Software engineer working on backend and distributed systems, developer tools, and applied AI.
 
-I like building the hard part myself before reaching for a library: a consensus algorithm, a job orchestrator, a benchmarking harness. I care about systems that are testable, that fail predictably, and whose performance claims come with the numbers behind them.
+
 
 Most recently I owned end-to-end payment integration at Skaya for a consumer platform with 30-40K users. Since 2023 I have shipped 24+ production projects for clients in the UK and India, from requirements and system design through deployment and on-call support.
 
