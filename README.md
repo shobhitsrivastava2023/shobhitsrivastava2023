@@ -13,37 +13,43 @@ Most recently I owned end-to-end payment integration at Skaya for a consumer pla
 ### Selected work
 
 **[RaftKV](https://github.com/shobhitsrivastava2023/raftkv)** &nbsp;`Java 21` `gRPC` `Docker`
+
 A distributed key-value store built on Raft, implemented from the paper with no consensus library. It covers leader election, log replication, durable storage with crash recovery, snapshots with InstallSnapshot, linearizable reads through ReadIndex, and exactly-once client writes. The node talks to the network, disk and clock only through interfaces, so the test suite runs a full 5-node cluster deterministically in one thread. It then pushes that cluster through 1,000 seeded fault scenarios (partitions, message loss and reordering, crashes) and checks the Raft safety properties after every event.
 
 **[NonLinear Workflows](https://github.com/shobhitsrivastava2023/Non-Linear-WorkFlows-)** &nbsp;`TypeScript` `Node.js` `Redis` `PostgreSQL`
+
 An orchestration backend for multi-step AI agents with 300+ third-party tool integrations. It has a Redis-backed shared state store for step coordination, background job queues, rate limiting, webhook ingestion, OAuth 2.0 token lifecycle management, and retry orchestration for failed steps.
 
-**[EndTest](https://github.com/shobhitsrivastava2023/EndTests)** &nbsp;`TypeScript` `Node.js`
-An API capacity-planning tool. It runs staged load scenarios (baseline, ramp, saturation, soak) while sampling process CPU, memory and event-loop lag. It evaluates p95/p99 latency and error-rate SLAs and reports a safe request rate, the likely bottleneck, and a starting estimate for cloud instance sizing.
+**[TYDE](https://github.com/shobhitsrivastava2023/TYDE)** &nbsp;`TypeScript` `Next.js` `Electron`
 
-**[LEXEL](https://github.com/shobhitsrivastava2023/lexel)** &nbsp;`Next.js` `tRPC` `Prisma` `PostgreSQL` `Cloudflare R2`
-A voice platform built on Chatterbox TTS, with voice cloning, live transcription and a real-time streaming voice agent. Output quality is enforced by an automated loop: an LLM acting as an adversarial judge scores each synthesis and re-runs it with corrected parameters until it meets the quality threshold.
+A keyboard-driven explainer canvas for recording technical videos. The script streams in word by word like an AI chat response, but the presenter controls the pace: each keypress reveals the next beat, and nothing moves on its own. The stage is a free-form canvas rather than a slide template. Text, images, diagrams, hand-drawn arrows and KaTeX math sit wherever you place them.
+
+- Scripts are plain markdown with directives, editable in a text editor or visually in the app (drag, resize, retype). Both write to the same file.
+- Arrows are rendered with rough.js, anchor to elements and re-route as things move. Their wobble is seeded, so every take renders identically.
+- Excalidraw SVG exports are inlined, recoloured to the theme, and can reveal one shape at a time.
+- A camera follows content as it grows and supports per-beat pan and zoom. It is replayed from step zero on every render, so stepping back and forth always lands on the same frame.
+- Layout is computed up front and only opacity changes during streaming, so text never reflows mid-sentence.
+- The stage is a fixed 1920x1080 canvas with no UI chrome, ready to capture in OBS. Ships as a Windows installer.
+
+<img src="https://raw.githubusercontent.com/shobhitsrivastava2023/TYDE/main/docs/screenshots/stage.png" alt="TYDE stage mid-presentation" width="720" />
+
+**[CodeStage](https://github.com/shobhitsrivastava2023/codestage)** &nbsp;`Rust` `Tauri v2` `React` `TypeScript`
+
+A presentation tool for code: Keynote, but every slide is a step in a program. You write code in sequential steps and CodeStage animates the transitions between them at the token level. Unchanged code slides into place, new code fades in, removed code fades out.
+
+- Built on Tauri v2 with a Rust backend and a React frontend, using Shiki and shiki-magic-move for highlighting and token animation, and CodeMirror 6 for editing.
+- Line highlighting with dimming, and a camera that follows the relevant lines in long files.
+- Present mode opens a borderless fullscreen window for recording, plus a separate presenter window with notes, a next-step preview and a timer.
+- Projects are JSON files saved atomically with autosave, so a crash never corrupts work.
+- 13 bundled themes, offline fonts, and 16:9 or 9:16 canvases for long-form videos and shorts. Ships as Windows installers (.exe and .msi).
+
+<img src="https://raw.githubusercontent.com/shobhitsrivastava2023/codestage/main/docs/screenshot.png" alt="CodeStage editor" width="720" />
 
 ---
 
-### Developer tools
+### Also
 
-Two desktop apps I built for my own technical videos. Both ship Windows installers.
-
-<table>
-<tr>
-<td width="50%" valign="top">
-<a href="https://github.com/shobhitsrivastava2023/codestage"><img src="https://raw.githubusercontent.com/shobhitsrivastava2023/codestage/main/docs/screenshot.png" alt="CodeStage editor" /></a>
-<br/><b><a href="https://github.com/shobhitsrivastava2023/codestage">CodeStage</a></b> &nbsp;<code>Tauri v2</code> <code>Rust</code> <code>React</code>
-<br/>A presentation tool for code. You write code in steps, and it animates the token-level changes between them for tutorial recordings.
-</td>
-<td width="50%" valign="top">
-<a href="https://github.com/shobhitsrivastava2023/TYDE"><img src="https://raw.githubusercontent.com/shobhitsrivastava2023/TYDE/main/docs/screenshots/stage.png" alt="TYDE stage" /></a>
-<br/><b><a href="https://github.com/shobhitsrivastava2023/TYDE">TYDE</a></b> &nbsp;<code>Next.js</code> <code>Electron</code>
-<br/>A keyboard-driven explainer canvas. Scripts stream in beat by beat on a free-form stage of text, diagrams, hand-drawn arrows and math.
-</td>
-</tr>
-</table>
+[EndTest](https://github.com/shobhitsrivastava2023/EndTests): API capacity planning with staged load tests, runtime telemetry and SLA checks. &nbsp;|&nbsp; [LEXEL](https://github.com/shobhitsrivastava2023/lexel): voice platform with TTS, voice cloning and an LLM-as-judge quality loop.
 
 ---
 
