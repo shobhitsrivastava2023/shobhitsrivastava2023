@@ -1,4 +1,4 @@
-# Hi, I'm Shobhit 👋
+# Hi, I'm Shobhit
 
 **Software Engineer: backend, distributed systems & AI.** I like building things from first principles: consensus algorithms, job orchestration, and developer tools I actually use.
 
